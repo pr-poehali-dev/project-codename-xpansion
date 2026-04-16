@@ -31,16 +31,16 @@ export function Navbar() {
               О нас
             </a>
             <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">
-              Услуги
+              Залы
             </a>
             <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">
-              Портфолио
+              Галерея
             </a>
             <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
-              Тарифы
+              Меню
             </a>
             <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
-              Контакты
+              Бронирование
             </a>
           </div>
 

@@ -1,42 +1,45 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check } from "lucide-react"
-import { QuoteFormDialog } from "@/components/QuoteFormDialog"
+import { Button } from "@/components/ui/button"
 
 const pricingTiers = [
   {
-    name: "Базовый",
-    price: "99 900",
+    name: "Классика",
+    price: "1 500",
+    period: "кальян",
     features: [
-      "До 5 страниц",
-      "Адаптивный дизайн",
-      "Базовая SEO-оптимизация",
-      "Форма обратной связи",
-      "1 месяц поддержки",
+      "Кальян на выбор из 30+ табаков",
+      "Замена чаши и угля",
+      "Фруктовый или молочный дым",
+      "Обслуживание у стола",
+      "Время: до 1,5 часа",
     ],
     highlighted: false,
   },
   {
-    name: "Про",
-    price: "249 900",
+    name: "Премиум",
+    price: "2 800",
+    period: "кальян",
     features: [
-      "До 15 страниц",
-      "Премиум-дизайн",
-      "Расширенная SEO-оптимизация",
-      "Интеграция CMS",
-      "Функционал e-commerce",
-      "3 месяца поддержки",
+      "Премиальные сорта табака",
+      "Авторский микс от мастера",
+      "Фруктовая чаша",
+      "Персональный мастер кальяна",
+      "Без ограничения по времени",
+      "Приоритетное бронирование",
     ],
     highlighted: true,
   },
   {
-    name: "Индивидуальный",
+    name: "VIP вечер",
     price: "По запросу",
+    period: "",
     features: [
-      "Неограниченно страниц",
-      "Кастомный функционал",
-      "API-интеграции",
-      "Персональный менеджер",
-      "6 месяцев поддержки",
+      "Приватная VIP комната",
+      "Неограниченные кальяны",
+      "Персональное меню",
+      "Встреча и трансфер",
+      "Живая музыка по запросу",
     ],
     highlighted: false,
   },
@@ -57,13 +60,13 @@ export function PricingSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Прозрачные цены
+            Меню кальянов
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-balance">
-            Выберите <span className="text-primary">идеальный тариф</span> для вашего проекта
+            Выберите <span className="text-primary">свой формат</span> вечера
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            От стартапов до крупного бизнеса — у нас есть подходящее решение
+            От уютного вечера с классикой до эксклюзивного VIP-опыта
           </p>
         </div>
 
@@ -90,9 +93,8 @@ export function PricingSection() {
                       <span className="text-3xl">{tier.price}</span>
                     ) : (
                       <>
-                        <span className="text-lg font-normal text-muted-foreground">от </span>
                         {tier.price}
-                        <span className="text-lg font-normal text-muted-foreground"> ₽</span>
+                        <span className="text-lg font-normal text-muted-foreground"> ₽ / {tier.period}</span>
                       </>
                     )}
                   </span>
@@ -107,13 +109,15 @@ export function PricingSection() {
                     </li>
                   ))}
                 </ul>
-                <QuoteFormDialog
-                  packageName={tier.name}
+                <Button
+                  asChild
                   variant={tier.highlighted ? "default" : "outline"}
                   className={`w-full ${tier.highlighted ? "shadow-lg shadow-primary/20" : ""}`}
                 >
-                  {tier.price === "По запросу" ? "Связаться с нами" : "Выбрать тариф"}
-                </QuoteFormDialog>
+                  <a href="#contact">
+                    {tier.price === "По запросу" ? "Связаться с нами" : "Забронировать"}
+                  </a>
+                </Button>
               </CardContent>
             </Card>
           ))}
@@ -121,8 +125,8 @@ export function PricingSection() {
 
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground">
-            Все тарифы включают <span className="text-primary font-semibold">бесплатную настройку хостинга</span> и{" "}
-            <span className="text-primary font-semibold">SSL-сертификат</span>
+            Все тарифы включают <span className="text-primary font-semibold">угольщика</span> и{" "}
+            <span className="text-primary font-semibold">бесплатную смену угля</span>
           </p>
         </div>
       </div>
